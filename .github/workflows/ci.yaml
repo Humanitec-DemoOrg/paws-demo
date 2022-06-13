@@ -20,6 +20,6 @@ jobs:
         with:
           context: ./backend
           image-name: caws-demo-backend
-          organization: humanitec-labs
+          organization: humanitec-demo
           tag: ${{ steps.get_version.outputs.VERSION }}
           humanitec-token: ${{ secrets.HUMANITEC_TOKEN }}
