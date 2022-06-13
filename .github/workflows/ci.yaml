@@ -1,0 +1,25 @@
+name: CI
+
+on: [push]
+
+jobs:  
+  push-to-humanitec:
+    runs-on: ubuntu-latest
+    if: startsWith(github.ref, 'refs/tags')
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Get the version
+        id: get_version
+        run: |
+          echo Version: ${GITHUB_REF/refs\/tags\//}
+          echo ::set-output name=VERSION::${GITHUB_REF/refs\/tags\//}
+      - name: Build and Push to Humanitec (backend)
+        uses: humanitec/build-push-to-humanitec@v1
+        with:
+          context: ./backend
+          image-name: caws-demo-backend
+          organization: humanitec-labs
+          tag: ${{ steps.get_version.outputs.VERSION }}
+          humanitec-token: ${{ secrets.HUMANITEC_TOKEN }}
