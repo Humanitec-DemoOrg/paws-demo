@@ -10,11 +10,13 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-      - name: Get the version
+
+      - name: Version
         id: get_version
         run: |
           echo Version: ${GITHUB_REF/refs\/tags\//}
           echo ::set-output name=VERSION::${GITHUB_REF/refs\/tags\//}
+
       - name: Build and Push to Humanitec (backend)
         uses: humanitec/build-push-to-humanitec@v1
         with:
