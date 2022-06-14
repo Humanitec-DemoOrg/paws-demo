@@ -43,6 +43,11 @@ func printConf(w http.ResponseWriter, req *http.Request) {
 func main() {
 	if err := loadConfig(conf); err != nil {
 		log.Fatalf(`Failed to load application configuration: %v`, err)
+	} else {
+		log.Printf("HOST: '%v'\n", conf.Host)
+		log.Printf("PORT: '%v'\n", conf.Port)
+		log.Printf("DEBUG: '%v'\n", conf.Debug)
+		log.Printf("CONNECTION_STRING: '%v'\n", conf.ConnStr)
 	}
 
 	addr := fmt.Sprintf("%s:%d", conf.Host, conf.Port)

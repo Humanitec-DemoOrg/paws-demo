@@ -1,3 +1,7 @@
+# Auto-generated CAWS files
+backend.yaml
+backend.env
+
 # VSCode folders
 .vscode/
 

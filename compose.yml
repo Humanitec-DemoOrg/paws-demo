@@ -1,15 +1,8 @@
 services:
 
-  resources:
-    build: ./backend
-    depends_on:
-      - database
+  backend:
     ports:
       - "8080:8080"
-    environment:
-      PORT: 8080
-      CONNECTION_STRING: postgresql://${DATABASE_USER?err}:${DATABASE_PASSWORD?err}@${DATABASE_HOST-localhost}:${DATABASE_PORT-5432}/${DATABASE_NAME?err}
-      DEBUG: ${DEBUG}
 
   database:
     image: postgres:11
@@ -19,5 +12,5 @@ services:
       - /var/lib/postgresql/data
     environment:
       POSTGRES_DB: ${DATABASE_NAME?err}
-      POSTGRES_USER: ${DATABASE_USER?err}
+      POSTGRES_USER: ${DATABASE_USERNAME?err}
       POSTGRES_PASSWORD: ${DATABASE_PASSWORD?err}
