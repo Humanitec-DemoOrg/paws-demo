@@ -1,10 +1,12 @@
 name: backend
+
 container:
   image: registry.humanitec.io/humanitec-demo/caws-demo-backend
   variables:
     PORT: "8080"
     DEBUG: "false"
     CONNECTION_STRING: postgresql://${resources.database.username}:${resources.database.password}@${resources.database.host}:${resources.database.port}/${resources.database.name}
+
 resources:
   database:
     type: postgres
@@ -17,6 +19,7 @@ resources:
         default: 5432
       name:
         required: true
+        default: backend_db
       username:
         secret: true
         required: false
