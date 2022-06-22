@@ -1,0 +1,17 @@
+
+on:
+  push:
+    branches:
+    - feature/paws
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Setup PAWS
+      uses: humanitec/setup-paws@v1
+      with:
+        paws-version: '0.3'
+    - name: Run paws-humanitec
+      run:
+        paws-humanitec version
