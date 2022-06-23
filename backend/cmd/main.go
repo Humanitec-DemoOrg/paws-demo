@@ -18,6 +18,7 @@ type configuration struct {
 	Port    int    `mapstructure:"PORT"`
 	Debug   bool   `mapstructure:"DEBUG"`
 	ConnStr string `mapstructure:"CONNECTION_STRING"`
+	Name    string `mapstructure:"SERVICE_NAME"`
 }
 
 var (
@@ -44,6 +45,7 @@ func main() {
 	if err := loadConfig(conf); err != nil {
 		log.Fatalf(`Failed to load application configuration: %v`, err)
 	} else {
+		log.Printf("NAME: '%v'\n", conf.Name)
 		log.Printf("HOST: '%v'\n", conf.Host)
 		log.Printf("PORT: '%v'\n", conf.Port)
 		log.Printf("DEBUG: '%v'\n", conf.Debug)

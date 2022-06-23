@@ -3,6 +3,7 @@ name: backend
 container:
   image: registry.humanitec.io/humanitec-demo/paws-demo-backend
   variables:
+    SERVICE_NAME: "N/A"
     PORT: "8080"
     DEBUG: "false"
     CONNECTION_STRING: postgresql://${resources.database.username}:${resources.database.password}@${resources.database.host}:${resources.database.port}/${resources.database.name}
