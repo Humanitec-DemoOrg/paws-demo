@@ -14,12 +14,12 @@ COPY . .
 # https://stackoverflow.com/questions/36279253/go-compiled-binary-wont-run-in-an-alpine-docker-container-on-ubuntu-host
 ENV CGO_ENABLED=0
 
-RUN GOOS=linux GOARCH=amd64 go build -o /opt/caws-demo/backend ./cmd/main.go
+RUN GOOS=linux GOARCH=amd64 go build -o /opt/paws-demo/backend ./cmd/main.go
 
 FROM alpine AS final
 
 WORKDIR /bin
-COPY --from=builder /opt/caws-demo /opt/caws-demo
+COPY --from=builder /opt/paws-demo /opt/paws-demo
 
-WORKDIR /opt/caws-demo
-ENTRYPOINT ["/opt/caws-demo/backend"]
+WORKDIR /opt/paws-demo
+ENTRYPOINT ["/opt/paws-demo/backend"]

@@ -1,7 +1,7 @@
 name: backend
 
 container:
-  image: registry.humanitec.io/humanitec-demo/caws-demo-backend
+  image: registry.humanitec.io/humanitec-demo/paws-demo-backend
   variables:
     PORT: "8080"
     DEBUG: "false"

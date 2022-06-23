@@ -21,7 +21,7 @@ jobs:
         uses: humanitec/build-push-to-humanitec@v1
         with:
           context: ./backend
-          image-name: caws-demo-backend
+          image-name: paws-demo-backend
           organization: humanitec-demo
           tag: ${{ steps.get_version.outputs.VERSION }}
           humanitec-token: ${{ secrets.HUMANITEC_TOKEN }}

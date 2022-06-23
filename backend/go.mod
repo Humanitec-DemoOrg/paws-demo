@@ -1,4 +1,4 @@
-module github.com/Humanitec-DemoOrg/caws-demo
+module github.com/Humanitec-DemoOrg/paws-demo
 
 go 1.18
 
